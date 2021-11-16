@@ -61,16 +61,74 @@ Drink Vending Machine
            {
                cout<<"\nInvalid choice:" << endl;
            }
+       }
+       void inputMoney(double money, int ch)
+       {
+          double cost = drink[ch-1]->price;
+          string name = drinks[ch-1]->name;
+          int q=drinks[ch-1]->quan;
+          char cho;
   
-  
-  
-  
-  
+          if(money >= cost)
+          {
+            if (q == 0)
+               {
+                   cout<< name <<" is sold out!!";
+               }
+               else
+               {
+                   cout<<"\nDo you want to buy "<< name <<" for :"<<cost<<" (y / n) : ";
+                   cin>>cho;
+                  
+                   if (cho != 'n' && cho != 'N')
+                   {
+                       cout<<"Beevrage Dispensed : "<< name <<endl;
+                      
+                       drinks[ch - 1]->quantity--;
+                       moneyCollected += cost;
+                      
+                       if (money-cost != 0)
+                       cout << "Change: " << money - cost << "\n\n";
+                   }
+                   else
+                   {
+                       cout << "Money returned: " << endl;
+                   }
+      
+               }
+           }
+           else
+           {
+               cout<<"\n  Need more money" << endl;
+               cout<<"Here is your money back!\n\n";
+           }
+       }
+      
+       void dailyReport()
+       {
+           cout<<" Daily Report : \n\n";
+           for (int i = 0; i < numOfDrinks; i++)
+           {
+               int q = drinks[i]->quantity;
+               if (q > 0)
+                   cout<<drinks[i]->name<<" left : "<< q <<endl;
+           }
+           cout<<"\nMoney collected : "<< moneyCollected <<"\n\n";
+       }
+      
+  };
   
   
   int main()
   {
-    getBevMachine();
+    BevMachine machine;
+  
+    machine.displayChoices():
+    machine.displayChoices();
+    machine.displayChoices
+    machine.dailyReport();
+  
+    return 0;
   }
   
   
